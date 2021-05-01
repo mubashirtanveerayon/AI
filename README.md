@@ -11,6 +11,10 @@
 
 ===================================================================================================================
 
+Run this project on Netbeans IDE.
+
+===================================================================================================================
+
 LIST OF COMMANDS(Commands Window)[CASE(lowercase/UPPERCASE) DOES NOT MATTER IN CASE OF WRITING COMMANDS]:
 
 ***NOTE THAT AFTER CLICKING THE "PROCESS" BUTTON YOU CAN'T RIGHT ANOTHER COMMAND UNLESS YOU CLICK
