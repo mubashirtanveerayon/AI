@@ -4,7 +4,7 @@
 					***********************
 					***********************
 					**VERSION : 2.0	     **
-					**	                 **
+					**	             **
 					**DEVELOPER : AGENT47**
 					***********************
 					***********************
@@ -33,6 +33,8 @@ LIST OF COMMANDS(Commands Window)[CASE(lowercase/UPPERCASE) DOES NOT MATTER IN C
 
 (Creating Files)[Can be enabled by clicking on the 3rd icon]
  (1)(Type whatever you want to write in the file and click on "Process". A window will pop up asking you the file name with appropriate extension. Click "OK".)
+ 
+ 
     ***YOU CAN MAKE ANY KIND OF FILE YOU WANT, JUST REMEMBER THAT YOU'LL NEED TO ADD THE PROPER FILE EXTENSION AT THE END OF THE FILE NAME***
 
 (Mathematical Operations)[Can be enabled by clicking on the 4th icon]
@@ -48,6 +50,7 @@ LIST OF COMMANDS(Voice):
    CAN DETECT THE SPECIFIC KEYWORD NEEDED TO EXECUTE A COMMAND***
 
  (1)OPEN/START (The name of the application)[Activity :- starts the application specified]
+ 
     ***CURRENTLY THE FOLLOWING APPS ARE RECOGNIZED BY THE SPEECH RECOGNIZER***
 	-DISCORD
 	-CALCULATOR
@@ -81,4 +84,6 @@ LIST OF COMMANDS(Voice):
  (9)CHANGE TAB[Activity:- switches to another tab(in browser, if opened)]
  (10)SLEEP[Activity:- temporarily turns off speech recognition, can be turned on again by clicking the unmute icon at the bottom right corner]
  (11)CAPTURE SCREENSHOT/SCREENSHOT[Activity:- captures screenshot and opens it]
+ 
+ 
 					****TESTED ON WINDOWS 10, MOST OF THE COMMANDS MAY NOT WORK AS EXPECTED IN OTHER OPERATING SYSTEMS****
