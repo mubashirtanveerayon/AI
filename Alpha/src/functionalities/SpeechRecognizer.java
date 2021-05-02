@@ -48,27 +48,7 @@ public class SpeechRecognizer implements Runnable {
             while ((speechresult = speechrecognizer.getResult()) != null) {
                 System.out.println(speech);
                 speech = speechresult.getHypothesis().toLowerCase();
-                if (speech.contains("sleep")) {
-                    VoiceUI.voiceLabel.setIcon(VoiceUI.mute);
-                    VoiceUI.listenLabel.setForeground(Color.black);
-                    resume = false;
-                    while (true) {
-                        if (resume) {
-                            break;
-                        }
-                        Thread.sleep(10);
-                    }
-                } else if (speech.contains("time")) {
-                    Say.input = "time";
-                    Thread thread = new Thread(target);
-                    thread.start();
-                } else if (speech.contains("date")) {
-                    Say.input = "date";
-                    Thread thread = new Thread(target);
-                    thread.start();
-                } else if (speech.contains("down")) {
-                    killSwitch.start();
-                } else if (speech.contains("open") || speech.contains("start")) {
+                if (speech.contains("open") || speech.contains("start")) {
                     Say.input = speech;
                     Thread thread = new Thread(target);
                     thread.start();
@@ -121,6 +101,16 @@ public class SpeechRecognizer implements Runnable {
 
                             }
                         }
+                    }
+                } else if (speech.contains("sleep")) {
+                    VoiceUI.voiceLabel.setIcon(VoiceUI.mute);
+                    VoiceUI.listenLabel.setForeground(Color.black);
+                    resume = false;
+                    while (true) {
+                        if (resume) {
+                            break;
+                        }
+                        Thread.sleep(10);
                     }
                 } else if (speech.contains("screenshot")) {
                     String filename = "screenshot";
@@ -226,7 +216,17 @@ public class SpeechRecognizer implements Runnable {
 
                         }
                     }
-                }
+                }else if (speech.contains("time")) {
+                    Say.input = "time";
+                    Thread thread = new Thread(target);
+                    thread.start();
+                } else if (speech.contains("date")) {
+                    Say.input = "date";
+                    Thread thread = new Thread(target);
+                    thread.start();
+                } else if (speech.contains("down")) {
+                    killSwitch.start();
+                } 
 
             }
         } catch (Exception ex) {
