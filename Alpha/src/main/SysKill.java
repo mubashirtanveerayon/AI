@@ -29,7 +29,7 @@ public class SysKill extends Thread {
             Information.f.setVisible(false);
         }
         Main.frame.setVisible(false);
-        System.setProperty("mbrola.base", "src\\Library\\Speak\\mbrola");
+        System.setProperty("mbrola.base", "Library\\Speak\\mbrola");
         voice = vm.getVoice("mbrola_us1");
         voice.allocate();
         voice.speak("Turning Off System.");

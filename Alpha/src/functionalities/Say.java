@@ -30,7 +30,7 @@ public class Say implements Runnable {
     }
 
     public void voiceProperty() {
-        System.setProperty("mbrola.base", "src\\Library\\Speak\\mbrola");
+        System.setProperty("mbrola.base", "Library\\Speak\\mbrola");
         voice = vm.getVoice("mbrola_us1");
         voice.allocate();
     }
@@ -63,21 +63,7 @@ public class Say implements Runnable {
             } else if (p == 1) {
                 voice.speak("Starting Microsoft Power Point!");
             }
-        }else if (input.contains("code")||input.contains("visual")) {
-            int p = random.nextInt(2);
-            if (p == 0) {
-                voice.speak("Openning Visual Studio Code!");
-            } else if (p == 1) {
-                voice.speak("Starting Visual Studio Code!");
-            }
-        } else if (input.contains("file")) {
-            int p = random.nextInt(2);
-            if (p == 0) {
-                voice.speak("Openning File Explorer!");
-            } else if (p == 1) {
-                voice.speak("Starting File Explorer!");
-            }
-        } else if (input.contains("cortana")) {
+        }else if (input.contains("cortana")) {
             voice.speak("Calling Cortana!");
         }  else {
             int p = random.nextInt(2);

@@ -34,8 +34,8 @@ public class SpeechRecognizer implements Runnable {
 
     public void SpeechRecognizerProperties() {
         config.setAcousticModelPath("resource:/edu/cmu/sphinx/models/en-us/en-us");
-        config.setDictionaryPath("src\\Library\\Speech Recognition\\2570.dic");
-        config.setLanguageModelPath("src\\Library\\Speech Recognition\\2570.lm");
+        config.setDictionaryPath("Library\\Speech Recognition\\7896.dic");
+        config.setLanguageModelPath("Library\\Speech Recognition\\7896.lm");
     }
 
     public void Recognize() {
@@ -72,41 +72,7 @@ public class SpeechRecognizer implements Runnable {
                     Say.input = speech;
                     Thread thread = new Thread(target);
                     thread.start();
-                    if (speech.contains("visual")) {
-
-                        try {
-
-                            Robot robot = new Robot();
-                            int[] com = ASCII("visual studio code\n");
-                            robot.keyPress(524);
-                            robot.keyRelease(524);
-                            robot.delay(130);
-                            for (int i = 0; i < com.length; i++) {
-                                robot.delay(20);
-                                robot.keyPress(com[i]);
-                                robot.keyRelease(com[i]);
-                            }
-                        } catch (Exception ex) {
-                            System.out.println(ex);
-                        }
-                    } else if (speech.contains("file")) {
-
-                        try {
-
-                            Robot robot = new Robot();
-                            int[] com = ASCII("file explorer\n");
-                            robot.keyPress(524);
-                            robot.keyRelease(524);
-                            robot.delay(130);
-                            for (int i = 0; i < com.length; i++) {
-                                robot.delay(20);
-                                robot.keyPress(com[i]);
-                                robot.keyRelease(com[i]);
-                            }
-                        } catch (Exception ex) {
-                            System.out.println(ex);
-                        }
-                    } else if (speech.contains("youtube")) {
+                    if (speech.contains("youtube")) {
 
                         try {
 
@@ -234,7 +200,7 @@ public class SpeechRecognizer implements Runnable {
                         } catch (Exception ex) {
 
                         }
-                    } else if (speech.contains("visual")) {
+                    } else if (speech.contains("visual studio code")) {
                         try {
                             Process pr = Runtime.getRuntime().exec("taskkill /F /IM Code.exe");
                         } catch (Exception ex) {
