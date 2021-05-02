@@ -40,7 +40,6 @@ public class SpeechRecognizer implements Runnable {
 
     public void Recognize() {
         try {
-
             LiveSpeechRecognizer speechrecognizer = new LiveSpeechRecognizer(config);
 
             speechrecognizer.startRecognition(true);
