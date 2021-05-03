@@ -1,8 +1,11 @@
 package functionalities;
 
+import autotype.AutoType;
+import edu.cmu.sphinx.api.Configuration;
+import edu.cmu.sphinx.api.LiveSpeechRecognizer;
+import edu.cmu.sphinx.api.SpeechResult;
 import main.*;
 import gui.*;
-import edu.cmu.sphinx.api.*;
 import java.awt.Color;
 import java.awt.Desktop;
 import java.awt.Rectangle;
@@ -16,6 +19,8 @@ import java.io.FileWriter;
 import javax.imageio.ImageIO;
 
 public class SpeechRecognizer implements Runnable {
+
+    public AutoType autotype = new AutoType();
 
     public String speech;
     public Configuration config = new Configuration();
@@ -40,6 +45,7 @@ public class SpeechRecognizer implements Runnable {
 
     public void Recognize() {
         try {
+
             LiveSpeechRecognizer speechrecognizer = new LiveSpeechRecognizer(config);
 
             speechrecognizer.startRecognition(true);
@@ -54,7 +60,6 @@ public class SpeechRecognizer implements Runnable {
                     if (speech.contains("youtube")) {
 
                         try {
-
                             BufferedWriter bw = new BufferedWriter(new FileWriter(Commands.junk.getPath() + "\\" + "Youtube.url"));
                             bw.write("[InternetShortcut]\n" + "URL=https://youtube.com/");
                             bw.close();
@@ -64,42 +69,29 @@ public class SpeechRecognizer implements Runnable {
                         } catch (Exception ex) {
                             System.out.println(ex);
                         }
-                    } else {
+                    } else if (speech.contains("open")) {
 
-                        if (speech.contains("open")) {
-                            StringBuffer sb = new StringBuffer(speech);
-                            int[] com = ASCII(String.valueOf(sb.delete(0, speech.indexOf("n") + 1)) + "\n");
-                            try {
-                                Robot r = new Robot();
-                                r.keyPress(524);
-                                r.keyRelease(524);
-                                r.delay(200);
-                                for (int i = 0; i < com.length; i++) {
-                                    r.delay(20);
-                                    r.keyPress(com[i]);
-                                    r.keyRelease(com[i]);
-                                }
-                            } catch (Exception ex) {
+                        StringBuffer sb = new StringBuffer(speech);
+                        try {
+                            Robot r = new Robot();
+                            r.keyPress(524);
+                            r.keyRelease(524);
+                            autotype.type(String.valueOf(sb.delete(0, speech.indexOf("n") + 1)) + "\n", 100, 10);
+                        } catch (Exception ex) {
 
-                            }
-                        } else {
-
-                            StringBuffer sb = new StringBuffer(speech);
-                            int[] com = ASCII(String.valueOf(sb.delete(0, 5)) + "\n");
-                            try {
-                                Robot r = new Robot();
-                                r.keyPress(524);
-                                r.keyRelease(524);
-                                r.delay(200);
-                                for (int i = 0; i < com.length; i++) {
-                                    r.delay(20);
-                                    r.keyPress(com[i]);
-                                    r.keyRelease(com[i]);
-                                }
-                            } catch (Exception ex) {
-
-                            }
                         }
+
+                    } else {
+                        StringBuffer sb = new StringBuffer(speech);
+                        try {
+                            Robot r = new Robot();
+                            r.keyPress(524);
+                            r.keyRelease(524);
+                            autotype.type(String.valueOf(sb.delete(0, 5)) + "\n", 100, 10);
+                        } catch (Exception ex) {
+
+                        }
+
                     }
                 } else if (speech.contains("sleep")) {
                     VoiceUI.voiceLabel.setIcon(VoiceUI.mute);
@@ -215,7 +207,7 @@ public class SpeechRecognizer implements Runnable {
 
                         }
                     }
-                }else if (speech.contains("time")) {
+                } else if (speech.contains("time")) {
                     Say.input = "time";
                     Thread thread = new Thread(target);
                     thread.start();
@@ -225,7 +217,7 @@ public class SpeechRecognizer implements Runnable {
                     thread.start();
                 } else if (speech.contains("down")) {
                     killSwitch.start();
-                } 
+                }
 
             }
         } catch (Exception ex) {

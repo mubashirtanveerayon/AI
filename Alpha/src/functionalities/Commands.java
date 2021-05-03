@@ -1,5 +1,6 @@
 package functionalities;
 
+import autotype.AutoType;
 import static gui.CommandsWindowUI.*;
 import java.awt.Desktop;
 import java.io.File;
@@ -25,6 +26,8 @@ public class Commands {
     public static String operation = "bot";
     public static SysKill killSwitch = new SysKill();
     public Say target = new Say();
+
+    public AutoType autotype = new AutoType();
 
     public static String com = "";
     public static String source = "";
@@ -168,69 +171,41 @@ public class Commands {
                 Say.input = msg;
                 Thread thread = new Thread(target);
                 thread.start();
-                if (msg.contains("open")) {
-                    if (msg.contains("youtube")) {
+                if (msg.contains("youtube")) {
 
-                        try {
-                            BufferedWriter bw = new BufferedWriter(new FileWriter(Commands.junk.getPath() + "\\" + "Youtube.url"));
-                            bw.write("[InternetShortcut]\n" + "URL=https://youtube.com/");
-                            bw.close();
-                            File file = new File(Commands.junk.getPath() + "\\" + "Youtube.url");
-                            Desktop desk = Desktop.getDesktop();
-                            desk.open(file);
-                        } catch (Exception ex) {
-                            System.out.println(ex);
-                        }
-                    } else {
+                    try {
+                        BufferedWriter bw = new BufferedWriter(new FileWriter(Commands.junk.getPath() + "\\" + "Youtube.url"));
+                        bw.write("[InternetShortcut]\n" + "URL=https://youtube.com/");
+                        bw.close();
+                        File file = new File(Commands.junk.getPath() + "\\" + "Youtube.url");
+                        Desktop desk = Desktop.getDesktop();
+                        desk.open(file);
+                    } catch (Exception ex) {
+                        System.out.println(ex);
+                    }
+                }
+                else if (msg.contains("open")) {
+                    
                         StringBuffer sb = new StringBuffer(msg);
-                        int[] com = ASCII(String.valueOf(sb.delete(0, msg.indexOf("n") + 1)) + "\n");
                         try {
                             Robot r = new Robot();
                             r.keyPress(524);
                             r.keyRelease(524);
-                            r.delay(200);
-                            for (int i = 0; i < com.length; i++) {
-                                r.delay(20);
-                                r.keyPress(com[i]);
-                                r.keyRelease(com[i]);
-                            }
+                            autotype.type(String.valueOf(sb.delete(0, msg.indexOf("n") + 1)) + "\n", 100, 10);
                         } catch (Exception ex) {
-                            JOptionPane.showMessageDialog(null, "My Author says if the user writes anything that includes"
-                                    + " any special character, it may not work as expected.", "Error", 0);
+
                         }
-                    }
+                    
                 } else {
-                    if (msg.contains("youtube")) {
-
-                        try {
-                            BufferedWriter bw = new BufferedWriter(new FileWriter(Commands.junk.getPath() + "\\" + "Youtube.url"));
-                            bw.write("[InternetShortcut]\n" + "URL=https://youtube.com/");
-                            bw.close();
-                            File file = new File(Commands.junk.getPath() + "\\" + "Youtube.url");
-                            Desktop desk = Desktop.getDesktop();
-                            desk.open(file);
-                        } catch (Exception ex) {
-                            System.out.println(ex);
-                        }
-                    } else {
-
                         StringBuffer sb = new StringBuffer(msg);
-                        int[] com = ASCII(String.valueOf(sb.delete(0, 5)) + "\n");
                         try {
                             Robot r = new Robot();
                             r.keyPress(524);
                             r.keyRelease(524);
-                            r.delay(200);
-                            for (int i = 0; i < com.length; i++) {
-                                r.delay(20);
-                                r.keyPress(com[i]);
-                                r.keyRelease(com[i]);
-                            }
+                            autotype.type(String.valueOf(sb.delete(0, 5)) + "\n", 100, 10);
                         } catch (Exception ex) {
-                            JOptionPane.showMessageDialog(null, "My Author says if the user writes anything that includes"
-                                    + " any special character, it may not work as expected.", "Error", 0);
+                            
                         }
-                    }
 
                 }
 
@@ -395,7 +370,7 @@ public class Commands {
                 }
             }
         } else if (operation.equals("file")) {
-
+            Say.input = "file";
             try {
 
                 String fname = JOptionPane.showInputDialog(null, "Enter the name of the file."
@@ -407,7 +382,8 @@ public class Commands {
                 BufferedWriter bw = new BufferedWriter(new FileWriter(userfiles.getPath() + "\\" + fname));
                 bw.write(maintxt);
                 bw.close();
-
+                Thread thread = new Thread(target);
+                thread.start();
                 File file = new File(userfiles.getPath() + "\\" + fname);
                 desk.open(file);
             } catch (Exception ex) {
