@@ -25,7 +25,7 @@ public class Intro {
             + "\n\t    THIS IS AGENT47,DEVELOPER OF ALPHA."
             + "\n\t   I'M CURRENTLY STUDYING AT NDC,DHAKA."
             + "\nI STARTED WORKING ON THIS PROJECT THIS YEAR IN FEBRUARY."
-            + "\n\tI ALWAYS WANTED TO DO SOMETHING LIKE THIS."
+            + "\n\tI ALWAYS WANTED TO BUILD SOMETHING LIKE THIS."
             + "\n\tAFTER WORKING RELENTLESSLY ON THIS PROJECT"
             + "\n\t\t  FOR THE PAST 2 MONTHS"
             + "\n\t     ALPHA IS NOW READY TO HELP YOU."
@@ -154,7 +154,7 @@ public class Intro {
             }
         };
         try {
-            backspaceeffect(authorsmessage,aut,5).join();
+            backspaceeffect(authorsmessage,aut,10).join();
         } catch (InterruptedException ex) {
 
         }
