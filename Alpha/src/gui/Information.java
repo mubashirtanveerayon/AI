@@ -49,7 +49,7 @@ public class Information implements MouseListener ,MouseMotionListener{
         txt2 = new JLabel("by Agent47.");
         txt2.setForeground(Color.white);
         txt2.setFont(new Font("System",Font.PLAIN,16));
-        txt2.setBounds(115,50,100,20);
+        txt2.setBounds(105,50,100,20);
         f.add(txt2);
         
         earlyrelease = new JLabel("Under Development");
