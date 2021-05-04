@@ -32,19 +32,6 @@ public class Commands {
     public static String com = "";
     public static String source = "";
 
-    public int[] ASCII(String text) {
-
-        text = text.toUpperCase();
-
-        int[] ascii = new int[text.length()];
-
-        for (int i = 0; i < text.length(); i++) {
-            ascii[i] = (int) text.charAt(i);
-        }
-
-        return ascii;
-    }
-
     public void Operation(String com) {
         if (com.equals("close")) {
             Main.c = 1;
@@ -233,20 +220,13 @@ public class Commands {
                 }
             } else if (msg.contains("call cortana")) {
                 Say.input = "open cortana";
-
+                Thread thread = new Thread(target);
+                thread.start();
                 try {
-                    Thread thread = new Thread(target);
-                    thread.start();
                     Robot robot = new Robot();
-                    int[] com = ASCII("cortana\n");
                     robot.keyPress(524);
                     robot.keyRelease(524);
-                    robot.delay(100);
-                    for (int i = 0; i < com.length; i++) {
-                        robot.delay(20);
-                        robot.keyPress(com[i]);
-                        robot.keyRelease(com[i]);
-                    }
+                    autotype.type("cortana\n", 100, 10);
                 } catch (Exception ex) {
 
                 }

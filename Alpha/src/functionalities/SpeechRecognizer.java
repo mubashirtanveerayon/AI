@@ -161,18 +161,11 @@ public class SpeechRecognizer implements Runnable {
                     thread.start();
                     try {
                         Robot robot = new Robot();
-                        robot.delay(1000);
-                        int[] com = ASCII("cortana\n");
                         robot.keyPress(524);
                         robot.keyRelease(524);
-                        robot.delay(100);
-                        for (int i = 0; i < com.length; i++) {
-                            robot.delay(20);
-                            robot.keyPress(com[i]);
-                            robot.keyRelease(com[i]);
-                        }
+                        autotype.type("cortana\n", 100, 10);
                     } catch (Exception ex) {
-                        System.out.println(ex);
+
                     }
                 } else if (speech.contains("close")) {
                     if (speech.contains("browser")) {
@@ -223,19 +216,6 @@ public class SpeechRecognizer implements Runnable {
         } catch (Exception ex) {
             System.out.println(ex);
         }
-    }
-
-    public int[] ASCII(String text) {
-
-        text = text.toUpperCase();
-
-        int[] ascii = new int[text.length()];
-
-        for (int i = 0; i < text.length(); i++) {
-            ascii[i] = (int) text.charAt(i);
-        }
-
-        return ascii;
     }
 
 }
