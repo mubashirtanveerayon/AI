@@ -67,7 +67,7 @@ public class Information implements MouseListener ,MouseMotionListener{
         
         linkStyle.setBounds(84,99,115,1);
         linkStyle.setOpaque(true);
-        linkStyle.setBackground(new Color(88,180,255));
+        linkStyle.setBackground(Color.DARK_GRAY);
         linkStyle.setCursor(new Cursor(Cursor.HAND_CURSOR));
         linkStyle.addMouseListener(this);
         f.add(linkStyle);
@@ -115,9 +115,15 @@ public class Information implements MouseListener ,MouseMotionListener{
 
     @Override
     public void mouseEntered(MouseEvent e) {
+        if(e.getSource()==linkLabel||e.getSource()==linkStyle){
+            linkStyle.setBackground(new Color(88,180,255));
+        }
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
+        if(e.getSource()==linkLabel||e.getSource()==linkStyle){
+            linkStyle.setBackground(Color.DARK_GRAY);
+        }
     }
 }
