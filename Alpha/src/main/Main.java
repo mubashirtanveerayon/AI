@@ -15,6 +15,7 @@ import java.awt.RenderingHints;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.awt.geom.RoundRectangle2D;
 import java.io.File;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -49,16 +50,16 @@ public class Main extends JFrame implements MouseListener,MouseMotionListener{
     };
     
     //resources
-    public final ImageIcon definfo = new ImageIcon(rsc.load("res\\definfo.png"));
-    public final ImageIcon info = new ImageIcon(rsc.load("res\\info.png"));
-    public final ImageIcon defquit = new ImageIcon(rsc.load("res\\defquit.png"));
-    public final ImageIcon quit = new ImageIcon(rsc.load("res\\quit.png"));
-    public final ImageIcon defcmdwindow = new ImageIcon(rsc.load("res\\defcmdwindow.png"));
-    public final ImageIcon cmdwindow = new ImageIcon(rsc.load("res\\cmdwindow.png"));
-    public final ImageIcon defvoice = new ImageIcon(rsc.load("res\\defvoice.png"));
-    public final ImageIcon voice = new ImageIcon(rsc.load("res\\voice.png"));
-    public final ImageIcon deftutorial = new ImageIcon(rsc.load("res\\deftutorial.png"));
-    public final ImageIcon tutorial = new ImageIcon(rsc.load("res\\tutorial.png"));
+    public final ImageIcon definfo = new ImageIcon(rsc.load("res/definfo.png"));
+    public final ImageIcon info = new ImageIcon(rsc.load("res/info.png"));
+    public final ImageIcon defquit = new ImageIcon(rsc.load("res/defquit.png"));
+    public final ImageIcon quit = new ImageIcon(rsc.load("res/quit.png"));
+    public final ImageIcon defcmdwindow = new ImageIcon(rsc.load("res/defcmdwindow.png"));
+    public final ImageIcon cmdwindow = new ImageIcon(rsc.load("res/cmdwindow.png"));
+    public final ImageIcon defvoice = new ImageIcon(rsc.load("res/defvoice.png"));
+    public final ImageIcon voice = new ImageIcon(rsc.load("res/voice.png"));
+    public final ImageIcon deftutorial = new ImageIcon(rsc.load("res/deftutorial.png"));
+    public final ImageIcon tutorial = new ImageIcon(rsc.load("res/tutorial.png"));
     
     public final JLabel title = new JLabel("Alpha");
     
@@ -96,7 +97,7 @@ public class Main extends JFrame implements MouseListener,MouseMotionListener{
         this.setLayout(null);
         this.setUndecorated(true);
         this.setResizable(false);
-        this.setIconImage(new ImageIcon(rsc.load("res\\alpha.png")).getImage());
+        this.setIconImage(new ImageIcon(rsc.load("res/alpha.png")).getImage());
         this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         
         //toppanel

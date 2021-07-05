@@ -7,6 +7,7 @@ import java.awt.Font;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.awt.geom.RoundRectangle2D;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -22,18 +23,18 @@ public class CommandsUI extends JFrame implements MouseListener,MouseMotionListe
     
     //resources
     private final ResourceLoader rsc=new ResourceLoader();
-    private final ImageIcon bot = new ImageIcon(rsc.load("res\\bot.png"));
-    private final ImageIcon defbot = new ImageIcon(rsc.load("res\\defbot.png"));
-    private final ImageIcon deffile = new ImageIcon(rsc.load("res\\deffile.png"));
-    private final ImageIcon file = new ImageIcon(rsc.load("res\\file.png"));
-    private final ImageIcon globe = new ImageIcon(rsc.load("res\\globe.png"));
-    private final ImageIcon defglobe = new ImageIcon(rsc.load("res\\defglobe.png"));
-    private final ImageIcon math = new ImageIcon(rsc.load("res\\math.png"));
-    private final ImageIcon defmath = new ImageIcon(rsc.load("res\\defmath.png"));
-    private final ImageIcon process = new ImageIcon(rsc.load("res\\process.png"));
-    private final ImageIcon reset = new ImageIcon(rsc.load("res\\reset.png"));
-    private final ImageIcon close = new ImageIcon(rsc.load("res\\close.png"));
-    private final ImageIcon icon=new ImageIcon(rsc.load("res\\cmdwindow.png"));
+    private final ImageIcon bot = new ImageIcon(rsc.load("res/bot.png"));
+    private final ImageIcon defbot = new ImageIcon(rsc.load("res/defbot.png"));
+    private final ImageIcon deffile = new ImageIcon(rsc.load("res/deffile.png"));
+    private final ImageIcon file = new ImageIcon(rsc.load("res/file.png"));
+    private final ImageIcon globe = new ImageIcon(rsc.load("res/globe.png"));
+    private final ImageIcon defglobe = new ImageIcon(rsc.load("res/defglobe.png"));
+    private final ImageIcon math = new ImageIcon(rsc.load("res/math.png"));
+    private final ImageIcon defmath = new ImageIcon(rsc.load("res/defmath.png"));
+    private final ImageIcon process = new ImageIcon(rsc.load("res/process.png"));
+    private final ImageIcon reset = new ImageIcon(rsc.load("res/reset.png"));
+    private final ImageIcon close = new ImageIcon(rsc.load("res/close.png"));
+    private final ImageIcon icon=new ImageIcon(rsc.load("res/cmdwindow.png"));
 
     //toppanel
     private final JPanel topPanel = new JPanel(null);
@@ -55,7 +56,7 @@ public class CommandsUI extends JFrame implements MouseListener,MouseMotionListe
     private String type="bot";
     
     private final Commands com=new Commands();
-    
+       
     public CommandsUI(){
         super("Alpha-Commands Window");
         initComponents();
@@ -69,6 +70,8 @@ public class CommandsUI extends JFrame implements MouseListener,MouseMotionListe
         this.setLocation(283, 184);
         this.setLayout(null);
         this.setUndecorated(true);
+        this.setOpacity(0.9f);
+        this.setShape(new RoundRectangle2D.Double(0,0,this.getWidth(),this.getHeight(),15,15));
         this.setIconImage(icon.getImage());
         this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         
@@ -226,7 +229,7 @@ public class CommandsUI extends JFrame implements MouseListener,MouseMotionListe
     public void mouseEntered(MouseEvent e) {
         if (e.getSource() == processLabel) {
             if (textarea.isEditable()) {
-                processLabel.setBackground(Color.green);
+                processLabel.setBackground(new Color(0,200,0));
             } else {
                 processLabel.setBackground(Color.red);
             }

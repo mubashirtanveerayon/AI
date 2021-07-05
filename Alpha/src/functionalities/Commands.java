@@ -88,7 +88,7 @@ public class Commands{
                 }
                 break;
             case "math":
-                String temp = command;
+                String temp = command.trim();
                 StringBuffer sb1 = new StringBuffer(temp);
                 StringBuffer sb2 = new StringBuffer(temp);
                 double num1,num2;
@@ -118,8 +118,7 @@ public class Commands{
                     default:
                         return "Syntax error!";                    
                 }
-            default://bot
-                //will be coded
+            default:                
                 command=command.toLowerCase();
                 if(command.contains("exit")){
                     say.input="exit";
@@ -155,8 +154,8 @@ public class Commands{
                             Robot r=new Robot();
                             r.keyPress(524);
                             r.keyRelease(524);
-                            AutoType aut = command.contains("open")?new AutoType(String.valueOf(sb.delete(0, command.indexOf("n") + 1)) + "\n",25)
-                                    :new AutoType(String.valueOf(sb.delete(0, 5)) + "\n",25);
+                            AutoType aut = command.contains("open")?new AutoType(String.valueOf(sb.delete(0, command.indexOf("n") + 1)) + "\n",100)
+                                    :new AutoType(String.valueOf(sb.delete(0, 5)) + "\n",100);
                             aut.start();
                         }catch(Exception ex){
                             System.out.println(ex);

@@ -7,6 +7,7 @@ import java.awt.Font;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.awt.geom.RoundRectangle2D;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -17,10 +18,10 @@ public class VoiceUI extends JFrame implements MouseListener, MouseMotionListene
     
     //resources
     private static final ResourceLoader rsc=new ResourceLoader();
-    public static final ImageIcon mute = new ImageIcon(rsc.load("res\\mute.png"));
-    private final ImageIcon gif = new ImageIcon(rsc.load("res\\loader.gif"));
-    private final ImageIcon close = new ImageIcon(rsc.load("res\\close.png"));
-    private final ImageIcon icon = new ImageIcon(rsc.load("res\\voice.png"));
+    public static final ImageIcon mute = new ImageIcon(rsc.load("res/mute.png"));
+    private final ImageIcon gif = new ImageIcon(rsc.load("res/loader.gif"));
+    private final ImageIcon close = new ImageIcon(rsc.load("res/close.png"));
+    private final ImageIcon icon = new ImageIcon(rsc.load("res/voice.png"));
     
     //labels
     private final JLabel closeLabel = new JLabel(close);
@@ -41,13 +42,15 @@ public class VoiceUI extends JFrame implements MouseListener, MouseMotionListene
         super("Alpha-Voice Commands");
         initComponents();
     }
-    
+       
     private void initComponents(){
         
         this.setResizable(false);
         this.getContentPane().setBackground(Color.black);
         this.setBounds(500, 180, 420, 390);
         this.setUndecorated(true);
+        this.setOpacity(0.9f);
+        this.setShape(new RoundRectangle2D.Double(0,0,this.getWidth(),this.getHeight(),15,15));
         this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         this.setIconImage(icon.getImage());
 

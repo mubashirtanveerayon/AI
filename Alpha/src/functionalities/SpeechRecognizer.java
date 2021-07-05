@@ -6,6 +6,7 @@ import edu.cmu.sphinx.api.SpeechResult;
 import gui.VoiceUI;
 import java.awt.Color;
 import java.awt.Cursor;
+import java.io.File;
 
 
 public class SpeechRecognizer implements Runnable{
@@ -28,9 +29,21 @@ public class SpeechRecognizer implements Runnable{
     }
 
     public void SpeechRecognizerProperties() {
+        File files=new File("lib/");
+        String dictionaryName="";
+        String lmName="";
+        String[] fileName=files.list();
+        for(String nesFileName:fileName){
+            if(nesFileName.contains(".lm")){
+                lmName=nesFileName;
+            }else if(nesFileName.contains(".dic")){
+                dictionaryName=nesFileName;
+            }
+        }
+        System.out.println(dictionaryName+","+lmName);
         config.setAcousticModelPath("resource:/edu/cmu/sphinx/models/en-us/en-us");
-        config.setDictionaryPath("lib/7896.dic");
-        config.setLanguageModelPath("lib/7896.lm");
+        config.setDictionaryPath("lib/"+dictionaryName);
+        config.setLanguageModelPath("lib/"+lmName);
     }
     
     public void recognizeSpeech() throws Exception{

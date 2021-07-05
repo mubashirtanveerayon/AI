@@ -19,9 +19,13 @@ public class Say implements Runnable{
         voice.allocate();
     }
     
+    public Say(){
+        voiceProperty();
+    }
+    
     @Override
     public void run() {
-        voiceProperty();
+        
         if (input.contains("search")) {
             search();
         } else if (input.contains("time")) {
@@ -76,12 +80,12 @@ public class Say implements Runnable{
             }
         }else if (input.contains("cortana")) {
             voice.speak("Calling Cortana!");
-        }  else {
+        }else {
             int p = random.nextInt(2);
             if (p == 0) {
                 voice.speak("Openning " + input + "!");
             } else if (p == 1) {
-                voice.speak("Starting" + input + "!");
+                voice.speak("Starting " + input + "!");
             }
         }
     }
