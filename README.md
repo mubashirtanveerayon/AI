@@ -92,4 +92,4 @@ LIST OF COMMANDS(Voice):
  
 					****TESTED ON WINDOWS 10, MOST OF THE COMMANDS MAY NOT WORK AS EXPECTED IN OTHER OPERATING SYSTEMS****
 ![preview](https://i.ibb.co/P5nwnHf/Screenshot-2021-08-23-093640.png)
-![Uploading 5khfqr.gif…]()
+![5khfqr](https://user-images.githubusercontent.com/76165265/130388851-6cbf5623-f3c6-4be0-8a84-d84f9300f899.gif)
